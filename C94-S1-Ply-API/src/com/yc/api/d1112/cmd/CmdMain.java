@@ -5,6 +5,13 @@ import java.io.*;
 
 // 主类
 
+/**
+ * 	1. 实现 dir 后面带指定路径，例如： dir window 或 dir d:\a
+	2. 实现 type 命令，显示问及那内容， 例如： type a.txt
+	3. 实现 del 命令， 删除指定文件
+	4. 实现 copy 命令， 复制文件
+ */
+
 public class CmdMain {
 
 	// 命令集合： 存放所有可以执行的命令对象
@@ -61,7 +68,9 @@ public class CmdMain {
 		CmdMain cm = new CmdMain();
 		// 初始化cm对象
 		cm.init(new CdCommand(cm), // 加入 cd 命令
-				new DirCommand(cm)); // 加入 dir 命令
+				new DirCommand(cm), // 加入 dir 命令
+				new TypeCommand(cm),// 加入 type 命令
+				new CopyCommand(cm)); // 加入 copy 命令
 		cm.start();
 	}
 
