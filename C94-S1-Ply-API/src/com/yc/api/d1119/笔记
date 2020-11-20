@@ -1,0 +1,28 @@
+JDBC入门
+Java 数据库连接组件
+1.加载驱动
+2.获取连接
+3.创建语句
+4.执行语句
+5.关闭资源
+
+JDBC 高级
+1. 预编译语句对象
+	sql执行： 数据库先编译SQL语句，再执行
+	ojdbc6.jar => 预编译： 在客户端（用户的主机）编译SQL语句
+	预编译语句对象的好处：
+	1. 效率高
+	2. 安全性高
+	
+	PreparedStatement 是 Statement 的子类
+
+2. 事务管理
+	oarcle事务操作语句： TCL
+	commit
+	rollback
+	savepoint
+	
+
+
+
+3. 动态SQL（组合条件查询）
