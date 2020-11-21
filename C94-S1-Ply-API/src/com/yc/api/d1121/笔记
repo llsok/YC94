@@ -1,0 +1,54 @@
+JDBC 高级
+1. 预编译语句对象
+	1） 预编译语句对象是普通语句对象的子类
+	2） 特点：
+		一，效率高
+		二，安全性高：==》 参数占位符 ? 有效避免注入攻击
+	3） setXXX(参数序号（1开始计数），参数值)  XXX表示类型
+2. 事务管理
+	伪代码
+	try{
+		业务流程
+		连接 .commit();// 提交
+	}catch(异常) {
+		连接.rollback();
+	}finally{
+		连接.close();
+	}
+3. 组合条件查询
+	String sql = "select * from 表 where 1=1 "
+	List param
+
+
+JDBC 封装
+	原理， 底层代码
+	框架、工具
+	
+	1. 简少开发代码量
+	2. 降低开发难度
+	
+	
+	public void select(String sql, Objects){
+		while(rs.next()){
+			system.out
+		}
+	}
+	
+	public void update(String sql, Objects){
+	
+	
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+	
