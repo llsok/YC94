@@ -1,0 +1,27 @@
+JDBC : Java 数据连接组件
+
+课程安排：
+1. 入门
+2. 高级
+3. 封装
+
+
+JDBC 操作步骤
+1. 加载驱动
+	Class.forName(....
+2. 获取连接
+	DriverManager.getConnection(...
+3. 创建语句
+	conn.createStatament()
+4. 执行语句
+	ResultSet rs = stat.executeQuery(sql)
+	int i = stat.executeUpdate(sql)  执行除SELECT以外的语句
+5. 关闭资源
+	rs.close()
+	stat.close()
+	conn.close()
+
+
+
+
+	

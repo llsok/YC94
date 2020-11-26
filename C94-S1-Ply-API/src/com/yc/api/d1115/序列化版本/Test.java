@@ -24,12 +24,12 @@ public class Test {
 		 * 	测试内容：	序列化版本编号对类存储的影响
 		 * 	初始化：		保存 Person
 		 */
-		//savePerson();
+		// savePerson();
 		/**
 		 *	测试1 ： 修改Person的序列化版本编号后，再读取 Person
 		 *	测试2 ： 还原Person的序列化版本编号，修改Child的序列化版本编号后，再读取 Person 
 		 */
-		// loadPerson();  
+		//loadPerson();  
 		 
 		 
 		/**
@@ -51,13 +51,13 @@ public class Test {
 		 *	测试内容：	不写序列化版本编号类存储的影响
 		 *	初始化：		先删除 Person 的序列化版本编号， 保存 Person
 		 */
-		 savePerson();
+		//savePerson();
 		 
 		 /**
 		 *	测试5 ： 去掉 Person.name 的 private ， 再加载 Person
 		 *	测试6：  还原 Person.name 的 private ，去掉 Child.name 的 private ，再加载 Person
 		 */
-		 loadPerson();
+		 // loadPerson();
 		
 		/**
 		 * 	总结：
@@ -78,9 +78,9 @@ public class Test {
 		// 创建并保存对象 Person
 		Person p = new Person("高俅", 35, '男');
 		p.setChild(new Child("高衙内"));
-		save(p, "e:/person.dat");
+		save(p, "d:/person.dat");
 		// 读取对象 Person
-		p = (Person) load(p, "e:/person.dat");
+		p = (Person) load(p, "d:/person.dat");
 		System.out.println(p);
 	}
 	
@@ -90,7 +90,7 @@ public class Test {
 	static void loadPerson() throws IOException, ClassNotFoundException {
 		Person p = null;
 		// 读取对象 Person
-		p = (Person) load(p, "e:/person.dat");
+		p = (Person) load(p, "d:/person.dat");
 		System.out.println(p);
 	}
 	
