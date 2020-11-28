@@ -43,6 +43,7 @@ public class DBHelperTest {
 	/**
 	 * 测试查询结果集总数方法 ==》 子查询
 	 */
+	@Test
 	public void testCount() throws SQLException {
 		String sql = "select * from emp where deptno=?";
 		DBHelper dbh = new DBHelper();
@@ -53,6 +54,7 @@ public class DBHelperTest {
 	/**
 	 * 测试查询单值结果集方法
 	 */
+	@Test
 	public void testSelectValue() throws SQLException {
 		String sql = "select ename from emp where empno=?";
 		DBHelper dbh = new DBHelper();
@@ -60,7 +62,7 @@ public class DBHelperTest {
 		Assert.assertEquals("KING", ename);
 
 		sql = "select job from emp where empno=?";
-		Object job = dbh.selectValue(sql, 7939);
+		Object job = dbh.selectValue(sql, 7839);
 		Assert.assertEquals("PRESIDENT", job);
 
 		// 查询最大工资， 如果你没有改数据，最高工资是KING ， 5000元
@@ -72,6 +74,7 @@ public class DBHelperTest {
 	/**
 	 * 测试查询单行数据结果集方法
 	 */
+	@Test
 	public void testSelectOne() throws SQLException {
 		// 根据主键查询 KING
 		String sql = "select * from emp where empno=?";

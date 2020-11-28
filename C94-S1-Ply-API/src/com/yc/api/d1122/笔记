@@ -1,0 +1,44 @@
+SWT： 图形编程框架
+
+GUI: 图形用户接口==》 界面
+
+AWT：Java提供
+
+SWING：Java提供（界面统一， 运行速度慢）
+
+SWT： IBM==》Eclipse ==》 调用本地系统的图形接口
+
+SWT: 创建的控件
+	1. ApplicationWindow 应用程序窗口
+	2. Composite  自定义组件
+	3. Dialog  弹窗
+	4. Shell   所有窗口，控件的共同的界面类
+	
+	Display 类： 负责与操作系统图形接口通信，多线程编程
+	
+	Label： 静态文本，展示图片
+	Text： 文本输入框
+	Button： 按钮
+	CheckButton 多选框
+	RadioButon  单选框。。。
+	Combo： 下拉框
+	Table 表格
+	DateTime 日期框
+	Tree  树形控件
+	List  列表
+	
+	Composites
+	TabFolder 标签页控件
+	
+	Layout 布局控件
+	
+	Menu 菜单
+	
+	
+	
+	
+	
+	
+	
+	
+	

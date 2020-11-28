@@ -1,4 +1,4 @@
-package com.yc.api.d1121;
+package com.yc.swt.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,18 +16,18 @@ public class DBHelper {
 
 	// OOP
 	static {
-		// ¾²Ì¬¿é £º Àà¼ÓÔØµÄÖ´ĞĞÒ»´Î, ¿é²»ÔÊĞíÅ×³ö±àÒëÆÚÒì³£
-		// 1.¼ÓÔØÇı¶¯
+		// é™æ€å— ï¼š ç±»åŠ è½½çš„æ‰§è¡Œä¸€æ¬¡, å—ä¸å…è®¸æŠ›å‡ºç¼–è¯‘æœŸå¼‚å¸¸
+		// 1.åŠ è½½é©±åŠ¨
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
-			// Òì³£×ªĞÍ£¬ Òì³£Á´
-			throw new RuntimeException("Êı¾İ¿âÇı¶¯¼ÓÔØÊ§°Ü£¡", e);
+			// å¼‚å¸¸è½¬å‹ï¼Œ å¼‚å¸¸é“¾
+			throw new RuntimeException("æ•°æ®åº“é©±åŠ¨åŠ è½½å¤±è´¥ï¼", e);
 		}
 	}
 
 	public Connection getConnection() throws SQLException {
-		// 2.»ñÈ¡Á¬½Ó
+		// 2.è·å–è¿æ¥
 		String url = "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
 		String user = "scott";
 		String password = "a";
@@ -35,18 +35,18 @@ public class DBHelper {
 	}
 
 	/**
-	 * Ö´ĞĞĞŞ¸ÄÊı¾İµÄSQLÓï¾ä
+	 * æ‰§è¡Œä¿®æ”¹æ•°æ®çš„SQLè¯­å¥
 	 * 
 	 * @param sql
 	 * @param params
-	 *            ¿É±ä²ÎÊıÊı×é £¬ ÕâÖÖ²ÎÊı±ØĞëĞ´ÔÚ·½·¨²ÎÊıµÄ×îºóÒ»¸ö
+	 *            å¯å˜å‚æ•°æ•°ç»„ ï¼Œ è¿™ç§å‚æ•°å¿…é¡»å†™åœ¨æ–¹æ³•å‚æ•°çš„æœ€åä¸€ä¸ª
 	 * @throws SQLException
 	 */
 	public int update(String sql, Object... params) throws SQLException {
 		Connection conn = getConnection();
 		try {
 			System.out.println("SQL: " + sql);
-			System.out.println("²ÎÊı: " + Arrays.toString(params));
+			System.out.println("å‚æ•°: " + Arrays.toString(params));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			for (int i = 0; i < params.length; i++) {
 				ps.setObject(i + 1, params[i]);
@@ -58,9 +58,9 @@ public class DBHelper {
 	}
 
 	/**
-	 * List<Map<String,Object>> ÓĞĞò¿ÉÖØ¸´
+	 * List<Map<String,Object>> æœ‰åºå¯é‡å¤
 	 * 
-	 * ²éÑ¯0~NĞĞ½á¹û¼¯
+	 * æŸ¥è¯¢0~Nè¡Œç»“æœé›†
 	 * 
 	 * @param sql
 	 * @param params
@@ -70,7 +70,7 @@ public class DBHelper {
 		Connection conn = getConnection();
 		try {
 			System.out.println("SQL: " + sql);
-			System.out.println("²ÎÊı: " + Arrays.toString(params));
+			System.out.println("å‚æ•°: " + Arrays.toString(params));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			for (int i = 0; i < params.length; i++) {
 				ps.setObject(i + 1, params[i]);
@@ -78,14 +78,14 @@ public class DBHelper {
 			List<Map<String, Object>> ret = new ArrayList<>();
 			ResultSet rs = ps.executeQuery();
 
-			// ½á¹û¼¯ÔªÊı¾İ£¨ÃèÊöÊı¾İµÄÊı¾İ£©¶ÔÏó
+			// ç»“æœé›†å…ƒæ•°æ®ï¼ˆæè¿°æ•°æ®çš„æ•°æ®ï¼‰å¯¹è±¡
 			ResultSetMetaData md = rs.getMetaData();
-			// md.getColumnCount(); // »ñÈ¡½á¹û¼¯µÄÁĞÊı
-			// md.getColumnName(column); // »ñÈ¡Ö¸¶¨ĞòºÅµÄÁĞÃû
+			// md.getColumnCount(); // è·å–ç»“æœé›†çš„åˆ—æ•°
+			// md.getColumnName(column); // è·å–æŒ‡å®šåºå·çš„åˆ—å
 			while (rs.next()) {
 				Map<String, Object> row = new HashMap<String, Object>();
 				/**
-				 * È¡³ö¸ÃĞĞËùÓĞµÄÁĞÖµ£¬´æ·Å row ¼¯ºÏÖĞ
+				 * å–å‡ºè¯¥è¡Œæ‰€æœ‰çš„åˆ—å€¼ï¼Œå­˜æ”¾ row é›†åˆä¸­
 				 */
 				for (int i = 0; i < md.getColumnCount(); i++) {
 					String columnName = md.getColumnName(i + 1);
@@ -101,19 +101,19 @@ public class DBHelper {
 	}
 
 	/**
-	 * ²éÑ¯ select Óï¾ä½á¹û¼¯µÄĞĞÊı
+	 * æŸ¥è¯¢ select è¯­å¥ç»“æœé›†çš„è¡Œæ•°
 	 * 
 	 * @param sql
 	 * @return
 	 */
 	public long count(String sql, Object... params) throws SQLException {
-		sql = "select count(*) from (" + sql + ")"; // ×Ó²éÑ¯
+		sql = "select count(*) from (" + sql + ")"; // å­æŸ¥è¯¢
 		Object obj = selectValue(sql,params); //  BigDecimal  Long Double  ==> long
-		return Long.parseLong("" + obj);  // ½« obj ×ª³É ×Ö·û´®
+		return Long.parseLong("" + obj);  // å°† obj è½¬æˆ å­—ç¬¦ä¸²
 	}
 
 	/**
-	 * ²éÑ¯ select Óï¾äµÚÒ»ĞĞµÚÒ»¸ö×Ö¶ÎÖµ£¨²éÑ¯µ¥Öµ£©
+	 * æŸ¥è¯¢ select è¯­å¥ç¬¬ä¸€è¡Œç¬¬ä¸€ä¸ªå­—æ®µå€¼ï¼ˆæŸ¥è¯¢å•å€¼ï¼‰
 	 * 
 	 * @param sql
 	 * @return
@@ -122,7 +122,7 @@ public class DBHelper {
 		Connection conn = getConnection();
 		try {
 			System.out.println("SQL: " + sql);
-			System.out.println("²ÎÊı: " + Arrays.toString(params));
+			System.out.println("å‚æ•°: " + Arrays.toString(params));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			for (int i = 0; i < params.length; i++) {
 				ps.setObject(i + 1, params[i]);
@@ -135,7 +135,7 @@ public class DBHelper {
 	}
 
 	/**
-	 * ²éÑ¯ select Óï¾äÎ¨Ò»µÄ½á¹û£¨ÀıÈç£º¸ù¾İÖ÷¼üÖµ²éÑ¯£©£¬Èç¹û·µ»Ø´óÓÚ1ĞĞÊı¾İ£¬ÔòÅ×³öSQLÒì³£
+	 * æŸ¥è¯¢ select è¯­å¥å”¯ä¸€çš„ç»“æœï¼ˆä¾‹å¦‚ï¼šæ ¹æ®ä¸»é”®å€¼æŸ¥è¯¢ï¼‰ï¼Œå¦‚æœè¿”å›å¤§äº1è¡Œæ•°æ®ï¼Œåˆ™æŠ›å‡ºSQLå¼‚å¸¸
 	 * 
 	 * @param sql
 	 * @return
@@ -144,21 +144,21 @@ public class DBHelper {
 		Connection conn = getConnection();
 		try {
 			System.out.println("SQL: " + sql);
-			System.out.println("²ÎÊı: " + Arrays.toString(params));
+			System.out.println("å‚æ•°: " + Arrays.toString(params));
 			PreparedStatement ps = conn.prepareStatement(sql);
 			for (int i = 0; i < params.length; i++) {
 				ps.setObject(i + 1, params[i]);
 			}
 			ResultSet rs = ps.executeQuery();
-			// ½á¹û¼¯ÔªÊı¾İ£¨ÃèÊöÊı¾İµÄÊı¾İ£©¶ÔÏó
+			// ç»“æœé›†å…ƒæ•°æ®ï¼ˆæè¿°æ•°æ®çš„æ•°æ®ï¼‰å¯¹è±¡
 			ResultSetMetaData md = rs.getMetaData();
-			// md.getColumnCount(); // »ñÈ¡½á¹û¼¯µÄÁĞÊı
-			// md.getColumnName(column); // »ñÈ¡Ö¸¶¨ĞòºÅµÄÁĞÃû
+			// md.getColumnCount(); // è·å–ç»“æœé›†çš„åˆ—æ•°
+			// md.getColumnName(column); // è·å–æŒ‡å®šåºå·çš„åˆ—å
 			if(rs.next() == false) {
-				// 0 ĞĞ
+				// 0 è¡Œ
 				return null;
 			} else {
-				// 1~N ĞĞ
+				// 1~N è¡Œ
 				Map<String, Object> row = new HashMap<String, Object>();
 				for (int i = 0; i < md.getColumnCount(); i++) {
 					String columnName = md.getColumnName(i + 1);
@@ -166,8 +166,8 @@ public class DBHelper {
 					row.put(columnName, value);
 				}
 				if(rs.next()){
-					// ¶àÓÚ 1ĞĞ
-					throw new SQLException("½á¹û¼¯µÄĞĞÊı´óÓÚ1"); 
+					// å¤šäº 1è¡Œ
+					throw new SQLException("ç»“æœé›†çš„è¡Œæ•°å¤§äº1"); 
 				} else {
 					return row;
 				}
