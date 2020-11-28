@@ -11,9 +11,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
 
+import com.yc.swt.biz.BizException;
+import com.yc.swt.biz.DeptBiz;
 import com.yc.swt.dao.DeptDao;
 
 import org.eclipse.swt.widgets.Spinner;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -28,8 +31,13 @@ public class DeptEditWin extends Dialog {
 	 */
 	protected Object result = false;
 	protected Shell shell;
+	private Spinner spinner;
 	private Text text;
 	private Text text_1;
+	private DeptBiz biz = new DeptBiz();
+	
+	private boolean isModify = false;
+	private TableItem tableItem;
 
 	/**
 	 * Create the dialog.
@@ -39,6 +47,12 @@ public class DeptEditWin extends Dialog {
 	public DeptEditWin(Shell parent, int style) {
 		super(parent, style);
 		setText("SWT Dialog");
+	}
+	
+	public DeptEditWin(Shell parent, int style, TableItem tableItem) {
+		// 调用当前类的其他构造函数
+		this(parent,style);
+		this.tableItem = tableItem;
 	}
 
 	/**
@@ -70,7 +84,9 @@ public class DeptEditWin extends Dialog {
 		label.setBounds(29, 47, 74, 12);
 		label.setText("编号：");
 		
-		Spinner spinner = new Spinner(shell, SWT.BORDER);
+		/*Spinner spinner = new Spinner(shell, SWT.BORDER);*/
+		spinner = new Spinner(shell, SWT.BORDER);
+		
 		spinner.setBounds(109, 44, 201, 21);
 		
 		Label label_1 = new Label(shell, SWT.NONE);
@@ -101,14 +117,24 @@ public class DeptEditWin extends Dialog {
 		button_1.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				DeptDao dao = new DeptDao();
+				
 				int deptno = Integer.parseInt(spinner.getText());
 				String dname = text.getText();
 				String loc = text_1.getText();
 				String msg = null;
 				try {
-					dao.insert(deptno, dname, loc);
-					msg = "部门添加成功！";
+					if(isModify){
+						// 修改
+						biz.modify(deptno, dname, loc);
+						
+					} else {
+						// 新增
+						biz.create(deptno, dname, loc);
+						// DeptDao dao = new DeptDao();
+						// dao.insert(deptno, dname, loc);
+					}
+					
+					msg = "部门保存成功！";
 					MessageBox mb = new MessageBox(shell);
 					mb.setText("系统提示");
 					mb.setMessage(msg);
@@ -116,20 +142,24 @@ public class DeptEditWin extends Dialog {
 					// 设置对话框的返回结果为 true
 					DeptEditWin.this.result = true;
 					DeptEditWin.this.shell.close();
-				} catch (SQLException e1) {
+				} catch (BizException e1) {
 					e1.printStackTrace();
-					msg = "部门添加失败！";
+					msg = e1.getMessage();
 					MessageBox mb = new MessageBox(shell);
 					mb.setText("系统提示");
 					mb.setMessage(msg);
 					mb.open();
-					
 				}
 			
 			}
 		});
 		button_1.setBounds(142, 154, 72, 22);
 		button_1.setText("保存");
+		
+		spinner.setSelection(Integer.parseInt(tableItem.getText(0)));
+		text.setText(tableItem.getText(1));
+		text_1.setText(tableItem.getText(2));
+		isModify = true;
 
 	}
 }

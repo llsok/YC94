@@ -7,3 +7,14 @@
 3. 行布局：RowLayout
 4. 卡片布局: StackLayout
 5. 边界布局: SWT 使用 Swing
+
+
+业务调用过程（删除）
+点击事件 ==》Biz类方法remove方法 ==》Dao类的countEmp方法 ==》 DBHelper的count
+						  ==》Dao类的delete方法 ==》 DBHelper的update
+
+
+
+
+
+
