@@ -43,6 +43,7 @@ public class DBHelperTest {
 	/**
 	 * 测试查询结果集总数方法 ==》 子查询
 	 */
+	@Test
 	public void testCount() throws SQLException {
 		String sql = "select * from emp where deptno=?";
 		DBHelper dbh = new DBHelper();
@@ -53,6 +54,7 @@ public class DBHelperTest {
 	/**
 	 * 测试查询单值结果集方法
 	 */
+	@Test
 	public void testSelectValue() throws SQLException {
 		String sql = "select ename from emp where empno=?";
 		DBHelper dbh = new DBHelper();
@@ -72,6 +74,7 @@ public class DBHelperTest {
 	/**
 	 * 测试查询单行数据结果集方法
 	 */
+	@Test
 	public void testSelectOne() throws SQLException {
 		// 根据主键查询 KING
 		String sql = "select * from emp where empno=?";
