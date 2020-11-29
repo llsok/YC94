@@ -62,7 +62,7 @@ public class DBHelperTest {
 		Assert.assertEquals("KING", ename);
 
 		sql = "select job from emp where empno=?";
-		Object job = dbh.selectValue(sql, 7939);
+		Object job = dbh.selectValue(sql, 7839);
 		Assert.assertEquals("PRESIDENT", job);
 
 		// 查询最大工资， 如果你没有改数据，最高工资是KING ， 5000元

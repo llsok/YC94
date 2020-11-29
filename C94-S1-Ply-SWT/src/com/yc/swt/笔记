@@ -1,0 +1,20 @@
+布局管理器：
+
+窗口，容器控件，都有布局管理器设置（Layout）
+常用布局管理：
+1. 绝对布局（默认），没有布局
+2. 填充布局：FillLayout
+3. 行布局：RowLayout
+4. 卡片布局: StackLayout
+5. 边界布局: SWT 使用 Swing
+
+
+业务调用过程（删除）
+点击事件 ==》Biz类方法remove方法 ==》Dao类的countEmp方法 ==》 DBHelper的count
+						  ==》Dao类的delete方法 ==》 DBHelper的update
+
+
+
+
+
+
