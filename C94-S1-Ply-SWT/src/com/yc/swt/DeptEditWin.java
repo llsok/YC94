@@ -156,10 +156,16 @@ public class DeptEditWin extends Dialog {
 		button_1.setBounds(142, 154, 72, 22);
 		button_1.setText("保存");
 		
-		spinner.setSelection(Integer.parseInt(tableItem.getText(0)));
-		text.setText(tableItem.getText(1));
-		text_1.setText(tableItem.getText(2));
-		isModify = true;
+		/**
+		 * tableItem 表示修改的记录
+		 * 新增不需要执行以下代码
+		 */
+		if(tableItem!=null){
+			spinner.setSelection(Integer.parseInt(tableItem.getText(0)));
+			text.setText(tableItem.getText(1));
+			text_1.setText(tableItem.getText(2));
+			isModify = true;
+		}
 
 	}
 }

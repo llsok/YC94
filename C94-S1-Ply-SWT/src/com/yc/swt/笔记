@@ -15,6 +15,58 @@
 
 
 
+扩展人事管理业务：
+1. 调薪
+	修改功能 emp.sal 字段
+	1. 修改字段值必须经由领导审批
+	2. 查询的需求
+	
+	表: sal_change ==> 记录调薪的数据
+	字段：id（主键），日期，当前薪资，调整后薪资，员工编号（员工信息==》关联查询）， 审批人， 原因
+		id	
+		create_time 
+		old_sal  
+		new_sal 
+		empno				 
+		verify, 
+		cause
+	
+	
+	
+	
+-- Create table
+create table SAL_CHANGE
+(
+  id          NUMBER(10) not null,
+  create_time TIMESTAMP(6),
+  old_sal     NUMBER(8,2),
+  new_sal     NUMBER(8,2),
+  empno       NUMBER(8),
+  verify      NUMBER(8),
+  cause       VARCHAR2(100)
+);
+-- Add comments to the columns 
+comment on column SAL_CHANGE.id
+  is 'id（主键）';
+comment on column SAL_CHANGE.create_time
+  is '日期';
+comment on column SAL_CHANGE.old_sal
+  is '当前薪资';
+comment on column SAL_CHANGE.new_sal
+  is '调整后薪资';
+comment on column SAL_CHANGE.empno
+  is '调薪人 员工编号（员工信息==》关联查询）';
+comment on column SAL_CHANGE.verify
+  is '审批人(员工编号)';
+comment on column SAL_CHANGE.cause
+  is '原因';	
 
-
+alter table SAL_CHANGE
+  add constraint PK_SC_ID primary key (ID);
+alter table SAL_CHANGE
+  add constraint FK_SC_EMPNO foreign key (EMPNO)
+  references EMP (EMPNO);
+alter table SAL_CHANGE
+  add constraint FK_SC_VERIFY foreign key (VERIFY)
+  references EMP (EMPNO);
 

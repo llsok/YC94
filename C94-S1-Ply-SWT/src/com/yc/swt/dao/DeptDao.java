@@ -1,6 +1,7 @@
 package com.yc.swt.dao;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,29 @@ public class DeptDao {
 		String sql = "select * from dept";
 		try {
 			return dbh.selectList(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}		
+	}
+	
+	public List<Map<String,Object>> select(String dname, String loc){
+		DBHelper dbh = new DBHelper();
+		String sql = "select * from dept where 1=1";
+		List<Object> list = new ArrayList<>();
+		
+		// Null pointer access: The variable dname can only
+		// be null at this location
+		if(dname!=null && dname.trim().isEmpty() == false){
+			sql += " and dname like ?"; // 模糊查询
+			list.add("%" + dname.trim() + "%");
+		}
+		if(loc!=null && loc.trim().isEmpty() == false){
+			sql += " and loc like ?"; // 模糊查询
+			list.add("%" + loc.trim() + "%");
+		}
+		try {
+			return dbh.selectList(sql, list.toArray());
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

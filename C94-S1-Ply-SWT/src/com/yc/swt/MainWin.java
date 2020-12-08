@@ -92,6 +92,18 @@ public class MainWin {
 
 		MenuItem menuItem_2 = new MenuItem(menu_1, SWT.NONE);
 		menuItem_2.setText("员工管理");
+		
+		MenuItem menuItem_8 = new MenuItem(menu_1, SWT.NONE);
+		/**
+		 * 点击“员工调薪”菜单执行的方法
+		 */
+		menuItem_8.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				new AddSalChangeWin(shell,SWT.NONE).open();
+			}
+		});
+		menuItem_8.setText("员工调薪");
 
 		new MenuItem(menu_1, SWT.SEPARATOR);
 

@@ -31,6 +31,7 @@ public class DeptComp extends Composite {
 	private Table table;
 	private Text text;
 	private DeptBiz biz = new DeptBiz();
+	private Text text_1; //新增地址的条件输入框
 	
 	/**
 	 * Create the composite.
@@ -69,6 +70,11 @@ public class DeptComp extends Composite {
 		label.setText("部门名称：");
 
 		text = new Text(composite, SWT.BORDER);
+		
+		Label label_1 = new Label(composite, SWT.NONE);
+		label_1.setText("地址：");
+		
+		text_1 = new Text(composite, SWT.BORDER);
 
 		Button btnNewButton = new Button(composite, SWT.NONE);
 		/**
@@ -176,7 +182,9 @@ public class DeptComp extends Composite {
 	 */
 	public void query() {
 		DeptDao dao = new DeptDao();
-		List<Map<String, Object>> list = dao.selectAll();
+		String dname = text.getText();
+		String loc = text_1.getText();
+		List<Map<String, Object>> list = dao.select(dname,loc);
 		// 清空表格的数据
 		// table.clearAll();
 		// 移除表格的数据

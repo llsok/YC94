@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="com/yc/swt/许林岗的作业参考/DeptBiz.java|com/yc/swt/许林岗的作业参考/DeptDao.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="F:/dev/eclipse-4.5-mars/plugins/org.eclipse.osgi_3.10.102.v20160118-1700.jar" sourcepath="F:/dev/eclipse-4.5-mars/plugins/org.eclipse.osgi_3.10.102.v20160118-1700.jar"/>
 	<classpathentry kind="lib" path="F:/dev/eclipse-4.5-mars/plugins/org.eclipse.core.commands_3.7.0.v20150422-0725.jar" sourcepath="F:/dev/eclipse-4.5-mars/plugins/org.eclipse.core.commands_3.7.0.v20150422-0725.jar"/>
@@ -15,6 +15,6 @@
 	<classpathentry kind="lib" path="F:/dev/eclipse-4.5-mars/plugins/com.ibm.icu_54.1.1.v201501272100.jar" sourcepath="F:/dev/eclipse-4.5-mars/plugins/com.ibm.icu_54.1.1.v201501272100.jar"/>
 	<classpathentry kind="lib" path="F:/dev/eclipse-4.5-mars/plugins/org.eclipse.ui.forms_3.6.200.v20150506-2029.jar" sourcepath="F:/dev/eclipse-4.5-mars/plugins/org.eclipse.ui.forms_3.6.200.v20150506-2029.jar"/>
 	<classpathentry kind="lib" path="swing2swt.jar"/>
-	<classpathentry kind="lib" path="/C94-S1-Ply-API/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="ojdbc14.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
