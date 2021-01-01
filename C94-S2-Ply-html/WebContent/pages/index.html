@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>html 标签分类</h1>
+
+
+<h3>1. 块级标签：占据一整行</h3>
+	<h4>1） 标题  h1~h6</h4>
+	<h4>2） 段落 p</h4>
+	<h4>3） 列表 ul（无序号列表）或ol（有序号列表）  + li </h4>
+	<ul id="edu_list"> <!-- id是唯一标识 -->
+		<li>高中</li>
+		<li>专科</li>
+		<li>本科</li>
+	</ul>
+	<ol type="A">
+		<li>苹果</li>
+		<li>香蕉</li>
+		<li>梨子</li>
+	</ol>
+	<h4>4）介绍 dl + dt + dd</h4>
+	<dl>
+		<dt>数学</dt>
+		<dd>加减乘除</dd>
+	</dl>
+	<h4>5）表格  table + tr 行 + th 列头 + td 数据 + thead + tbody </h4>
+	<table border="1px" width="50%">
+		<tr>
+			<th>学号</th><th>班级</th><th>姓名</th><th>性别</th>
+		</tr>
+		<tr>
+			<td>001</td><td rowspan="3">软件1</td><td>张三</td><td>男</td>
+		</tr>
+		<tr>
+			<td>002</td><td>李四</td><td>女</td>
+		</tr>
+		<tr>
+			<td>003</td><td>王五</td><td>男</td>
+		</tr>
+		<tr>
+			<td>004</td><td>软件3</td><td>赵六</td><td>男</td>
+		</tr>
+		<tr>
+			<td>总人数</td><td colspan="3">4</td>
+		</tr>
+	</table>
+	<h4>6）div 元素定位</h4>
+
+
+<h3>2. 行级标签：是行内一块内容</h3>
+	<h4>1）图片  img</h4>
+		<ol>
+			<li> 图片的高度和宽度同时指定，可能会产变形</li>
+			<li> 图片引用网络资源，src 可以写网络路径</li>
+			<li> 图片引用本地资源，src 根据路径编写(上楼下楼)</li>
+		</ol>
+	<img alt="图片路径错误时显示的文字" src="001.jpg" width="200px">
+	<img alt="图片路径错误时显示的文字" src="../images/002.jpg" width="200px">
+	<img alt="图片路径错误时显示的文字" src="../pics/003.jpeg" width="200px">
+	
+	<h4>2）超链接 a</h4>
+		<ol>
+			<li> 超链接跳转定义在 href ==》 html ref引用
+			<li> 跳转到外站资源 ==》 淘宝， 必须要以http开头
+			<li> 跳转到本站资源，地址格式请参考 img 的 src
+			<li> 超链接可以实现页面内导航, 导航到锚点位置 指定的id
+		</ol>
+	<a href="www.taobao.com">淘宝</a>
+	<br> <!-- 注释  br是换行标签 -->
+	<a href="user/login.html">登录</a>
+	<hr> <!-- 注释  hr 分割线 -->
+	<a href="#edu_list">跳转到学历列表</a>
+	
+	<h4>3）表单标签 form input button select textarea </h4>
+		<ol>
+			<li> action="定义表单提交的资源路径==》跳转的页面"
+			<li> 跳转到外站资源 ==》 淘宝， 必须要以http开头
+			<li> 跳转到本站资源，地址格式请参考 img 的 src
+			<li> 超链接可以实现页面内导航, 导航到锚点位置 指定的id
+		</ol>	
+	<form action="action.html">
+		账号：<input placeholder="请输入账号"><br>
+		密码：<input type="password"><br>
+		年龄：<input type="number"><br>
+		邮箱：<input type="email"><br>
+		爱好：<input type="checkbox">篮球
+			<input type="checkbox">读书
+			<input type="checkbox">电影
+			<input type="checkbox">手游<br>
+		<!-- 单选框必须指定相同的 name 才能实现单选效果 -->
+		学历：<input name="edu" type="radio">初中
+			<input name="edu" type="radio">高中
+			<input name="edu" type="radio">大专
+			<input name="edu" type="radio">本科<br>
+		籍贯：<select>
+				<option>湖南</option>
+				<option>湖北</option>
+				<option>广东</option>
+				<option>广西</option>
+			</select><br>
+		介绍：<textarea rows="10" cols="30">测试内容
+			
+			</textarea><br>
+		<input type="submit" value="submit提交按钮，点击将会跳转到 from 的 action 属性指定的资源"><br>
+		<input type="button" value="button普通按钮，默认不执行任何操作"><br>
+		<input type="reset" value="reset重置按钮，重置表单的输入的内容"><br>
+		
+		<button>默认是submit提交按钮</button><br>
+		<button type="button">button普通按钮</button><br>
+		<button type="reset">reset重置按钮</button><br>
+		
+	</form>
+	
+	
+	
+	
+</body>
+</html>
