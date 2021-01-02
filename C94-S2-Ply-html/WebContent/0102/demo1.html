@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 标签选择器， 以标签名作为选择器的值 */
+div{
+	width:200px; height:200px; background-color: #555
+}
+/* id选择器， 以id作为选择器的值 */
+#d1{
+	border: blue 10px solid; /* 简写模式  蓝色 2像素 实线条边框*/
+}
+/* 类选择器， 以class 类名作为选择器的值 */
+/* .last3{
+	text-align: center;
+	vertical-align: middle; 上下居中
+	line-height: 200px
+*/
+}
+</style>
+<!-- 引入外部样式文件 -->
+<link rel="stylesheet" type="text/css" href="myStyle.css">
+
+
+</head>
+<body>
+<img src="../0101/images/002.jpg" 
+style=" width:200px  ">
+<div style="background-color: red">内容</div>
+<div style="background-color: #ff0">内容</div>
+<div style="background-color: rgba(0,0,255, 0.5)">内容</div>
+<!-- alt + / 代码提示 -->
+<div style="font-family: 微软雅黑;font-weight: 
+	bold; font-size: 2em; color: green;
+	text-align: center;
+	text-indent: 20px;">
+
+内容，这是一个div
+</div>
+
+<div id="d1" class="last3">div1</div>
+<div class="last3">div2</div>
+<div class="last3">div3</div>
+
+</body>
+</html>

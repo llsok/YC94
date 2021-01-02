@@ -1,0 +1,11 @@
+@CHARSET "UTF-8";
+
+/* 类选择器， 以class 类名作为选择器的值 */
+.last3{
+	text-align: center;
+	vertical-align: middle; /*上下居中*/
+	line-height: 200px;
+	font-size: 2em;
+	color: #fff
+	
+}

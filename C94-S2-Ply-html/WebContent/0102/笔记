@@ -1,0 +1,73 @@
+HTML
+
+<html>
+<head>配置信息</head>
+<body>内容</body>
+</html>
+
+标签分类：
+1. 块级标签
+	h1~h6  p
+	ul or ol + li 列表
+	dl + dt + dd 描述
+	table + tr（行）+ th（列头） + td（列）
+	div 布局定位
+1. 行级标签
+	img 图片  alt 描述文字  src 路径
+	a 超链接   href   页内导航 ==》 锚点（id）==》 #id
+	表单控件
+	input type
+	select + option
+	textarea
+	button
+	
+	
+CSS: 层叠样式表
+
+
+<img style="width:100px ; height:200px">
+<img style="width:100px ; height:200px">
+<img style="width:100px ; height:200px">
+<img style="width:100px ; height:200px">
+
+长度
+	px 像素
+	cm 厘米
+	mm 毫米
+	em 1em 原始高度 字体
+	%  百分数  50%  占据父容器控件的长度比率
+颜色
+	1. 颜色单词： red green blue
+	2. 颜色编码： 三原色， 取值0~255   ff  ff  ff， #开头
+		#ffffff 白
+		#000000 黑
+		#ffff00 黄  ==》 #ff0 简写
+	3. 函数： rgb(0,0,255), rgba(0,0,255, 0.5)
+字体
+	font-开头都是字体属性
+
+停靠
+。。。。
+
+
+样式设置分类：
+1. 内联样式： 样式设定在 元素的 style 属性中
+2. 内部样式： 样式设定在 style 标签中, 通过选择器语法设定到对应的元素上
+3. 外部样式： 语法等同内部样式， 样式语法单独保存在 css 文件中
+
+
+图片背景偏移
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
