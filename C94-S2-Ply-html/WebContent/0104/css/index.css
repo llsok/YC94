@@ -1,11 +1,18 @@
 @CHARSET "UTF-8";
 
+/*清除所有元素的内外边距*/
+*{
+	padding: 0px;
+	margin: 0px
+}
+
 header{
 	background: #eee
 }
 
 footer{
-	background: #ddd
+	background: #ddd;
+	clear:both;
 }
 
 main{
@@ -24,4 +31,40 @@ main{
 	width: 290px;
 	float: right;
 }
+
+/****************** 页头 ******************/
+header>div{
+	background: #000;
+	color: #fff;
+}
+
+header>div>div{
+	width: 1200px;
+	margin: auto
+}
+
+/* 设定 div 所有内部元素的垂直居中 */
+header>div>div>*{
+	vertical-align: middle;
+}
+
+header span{
+	height: 50px;
+	line-height: 50px;
+	margin: 10px;
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
