@@ -44,7 +44,8 @@ header>div{
 
 header>div>div{
 	width: 1200px;
-	margin: auto
+	margin: auto;
+	background: #000;
 }
 
 /* 设定 div 所有内部元素的垂直居中 */
@@ -58,7 +59,6 @@ header span{
 	padding: 0px 20px;
 	display: inline-block;
 }
-
 
 header>img{
 	display:block;
@@ -184,6 +184,45 @@ main{
 #bzinfo>div>span{
 	display: inline-block;
 	padding: 10px
+}
+
+/************************* 分类文章列表 ***************************/
+.alist{
+	font-size: 0.7em;
+	width: 440px
+}
+
+.alist>div>span{
+	margin: 10px 10px 10px 0px;
+}
+
+.alist>div>span:nth-child(1){
+	border-left: green 3px solid;
+	padding: 5px
+}
+
+.alist>table{
+	clear: both;
+	width: 100%;
+	border-top: 1px #ddd solid;
+}
+.alist>table td{
+	padding: 5px;
+	border-bottom: 1px #eee dashed;
+}
+
+a{
+	text-decoration: none; /*去掉下划线*/
+	color: #666;
+	/*字体省略*/
+}
+
+body{
+	background: #ccc
+}
+
+div {
+	background: #eee;
 }
 
 
