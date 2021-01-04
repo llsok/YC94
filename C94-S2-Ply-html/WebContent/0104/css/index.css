@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+header{
+	background: #eee
+}
+
+footer{
+	background: #ddd
+}
+
+main{
+	width: 1200px;
+	margin: auto
+}
+
+#content-left{
+	background: #aaa;
+	width: 900px;
+	float: left;
+}
+
+#content-right{
+	background: #999;
+	width: 290px;
+	float: right;
+}
+
