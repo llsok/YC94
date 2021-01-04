@@ -51,10 +51,13 @@ header>div>div>*{
 header span{
 	height: 50px;
 	line-height: 50px;
-	margin: 10px;
+	margin: 0px 10px;
 	display: inline-block;
 }
 
+header>img{
+	display:block;
+}
 
 
 
