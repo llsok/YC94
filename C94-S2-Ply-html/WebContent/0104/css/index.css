@@ -5,6 +5,11 @@
 	padding: 0px;
 	margin: 0px
 }
+/*所有图片宽度默认100%*/
+img{
+	width:100%
+}
+
 
 header{
 	background: #eee
@@ -77,11 +82,34 @@ header input{
 	background: url(../imgs/icon/search.png) no-repeat right center;
 }
 
+/****************** 主体内容：推荐文章  ******************/
+/*
+	1. div默认高度是内容的高度
+	2. 如果div设置的高度低于内容高度，将会产生内容溢出
+	3. 要避免内容溢出， 使用 overflow属性
+	:nth-child(1) 序号选择器
+*/
+.tj{
+	border-radius: 5px; /*圆角边框  5px 是半径*/
+	overflow: hidden;
+}
 
-
-
-
-
+.tj>div:nth-child(1){
+	height: 300px;
+	overflow: hidden;
+}
+.tj>div:nth-child(2){
+	background: #000;
+	color: #fff;
+	padding: 10px
+}
+main{
+	margin: 10px auto;
+}
+/*设定left的背景色为“继承”（默认值），无色*/
+#content-left{
+	background-color:inherit;
+}
 
 
 
