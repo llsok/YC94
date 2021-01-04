@@ -124,17 +124,67 @@ main{
 	margin: auto
 }
 
+/************************ 博主信息 ********************************/
+#content-right{
+	background-color:inherit;
+}
 
+#bzinfo{
+	text-align: center;
+}
+#bzinfo>img:nth-child(2){
+	width:100px;
+	border-radius: 50%;
+	margin-top: -55px;
+	box-shadow: 2px 2px 2px #888888;
+}
 
+#bzname{
+	font-size: 1.1em;
+	font-weight: bold;
+}
 
+#bzname>*{
+	vertical-align: middle;
+}
 
+#bzname>img{
+	width: auto;
+	transform:rotate(45deg);
+}
 
+#bzdesc{
+	text-align: left;
+}
 
+#bzdesc>.label{
+	width: 70px;
+	display: inline-block;
+}
 
+#bzdesc{
+	padding: 20px
+}
+#bzdesc>label{
+	font-family: 微软雅黑;
+	font-size: 0.7em;
+	padding: 5px
+}
 
+#bzinfo>hr{
+	margin: 20px
+}
 
-
-
+#bzinfo>div:nth-child(6){
+	background-color: #000;
+	color: #fff;
+	font-family: 微软雅黑;
+	font-size: 0.7em;
+}
+#bzinfo>div>span{
+	display: inline-block;
+	padding: 10px
+}
 
 
 
