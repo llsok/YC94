@@ -10,7 +10,6 @@ img{
 	width:100%
 }
 
-
 header{
 	background: #eee
 }
@@ -110,6 +109,32 @@ main{
 #content-left{
 	background-color:inherit;
 }
+
+/***********************主体内容：推荐文章  小 ****************************/
+.xiao {
+	width:290px
+}
+.xiao>div:nth-child(1){
+	height: 150px;
+}
+.left{
+	float: left
+}
+.tj:nth-child(4){
+	margin: auto
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
