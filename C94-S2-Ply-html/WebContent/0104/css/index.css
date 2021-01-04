@@ -51,17 +51,31 @@ header>div>div>*{
 header span{
 	height: 50px;
 	line-height: 50px;
-	margin: 0px 10px;
+	padding: 0px 20px;
 	display: inline-block;
 }
+
 
 header>img{
 	display:block;
 }
 
+.right{
+	float: right
+}
 
+header span:hover{
+	background: #999	
+}
 
-
+header input{
+	width: 200px;
+	background: #000;
+	color: #fff;
+	border-width: 0px 0px 2px;
+	padding: 15px 0px 10px;
+	background: url(../imgs/icon/search.png) no-repeat right center;
+}
 
 
 
