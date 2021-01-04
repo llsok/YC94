@@ -45,7 +45,6 @@ header>div{
 header>div>div{
 	width: 1200px;
 	margin: auto;
-	background: #000;
 }
 
 /* 设定 div 所有内部元素的垂直居中 */
@@ -221,9 +220,12 @@ body{
 	background: #ccc
 }
 
-div {
-	background: #eee;
+#content-left>div,#content-right>div {
+	background: #F8F8F8;
+	margin-bottom: 10px;
+	border-radius: 5px
 }
+
 
 
 
